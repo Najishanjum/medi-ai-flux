@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# MediAI - AI-Powered Healthcare Diagnosis
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/d8a97f19-80e0-4a40-8686-dc431ab8b2bf
+**MediAI** is a cutting-edge AI-powered healthcare diagnosis platform developed by **Team ILM Tech**. Our mission is to provide fast, accurate, and affordable medical support through advanced artificial intelligence technology.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **AI Symptom Analysis**: Advanced natural language processing for symptom evaluation
+- **Medical Image Analysis**: AI-powered analysis of medical images and scans
+- **Voice-Enabled Diagnosis**: Speak your symptoms and get instant AI analysis
+- **Real-time Health Dashboard**: Comprehensive health monitoring and analytics
+- **Telemedicine Integration**: Connect with healthcare professionals instantly
+- **Emergency SOS**: Quick access to emergency medical services
 
-**Use Lovable**
+## Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d8a97f19-80e0-4a40-8686-dc431ab8b2bf) and start prompting.
+This project is built with modern web technologies:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI and shadcn/ui
+- **Build Tool**: Vite
+- **State Management**: TanStack Query
+- **Routing**: React Router DOM
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd mediai-platform
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/
+│   └── ui/           # Reusable UI components
+├── pages/            # Application pages
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+└── assets/           # Static assets
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Development Team
 
-## What technologies are used for this project?
+**Team ILM Tech** is dedicated to advancing healthcare technology through innovative AI solutions. We believe in making quality healthcare accessible to everyone.
 
-This project is built with:
+### Contact Information
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Email**: teamilmtech@gmail.com
+- **Phone**: +91 7631296157, 6268385870
+- **WhatsApp**: [Join our community](https://chat.whatsapp.com/IJw256xuepP956JsufMY6g)
+- **LinkedIn**: [Team ILM Tech](https://www.linkedin.com/company/team-ilm-tech/)
+- **Instagram**: [@teamilmtech](https://www.instagram.com/teamilmtech?igsh=dmo2dmtwMndoOXVw)
+- **Address**: Jabalpur, Madhya Pradesh
 
-## How can I deploy this project?
+## Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/d8a97f19-80e0-4a40-8686-dc431ab8b2bf) and click on Share -> Publish.
+We welcome contributions from the community. Please read our contributing guidelines before submitting pull requests.
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
+This project is developed and maintained by Team ILM Tech. All rights reserved.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For technical support or inquiries about our healthcare AI solutions, please contact us through any of the channels listed above.
+
+---
+
+**Team ILM Tech** - Innovating Healthcare Through Technology

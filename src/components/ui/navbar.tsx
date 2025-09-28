@@ -45,6 +45,13 @@ export const Navbar = () => {
             </span>
           </Link>
 
+          {/* Powered by Team ILM Tech */}
+          <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
+            <span className="text-xs text-muted-foreground animate-pulse-glow">
+              Powered by Team ILM Tech
+            </span>
+          </div>
+
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
