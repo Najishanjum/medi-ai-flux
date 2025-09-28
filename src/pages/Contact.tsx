@@ -77,14 +77,15 @@ const Contact = () => {
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-secondary mr-3" />
                   <div>
-                    <p className="font-medium">+1 (800) 123-MEDI</p>
+                    <p className="font-medium">+91 7631296157</p>
+                    <p className="font-medium">+91 6268385870</p>
                     <p className="text-sm text-muted-foreground">Available 24/7</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-accent mr-3" />
                   <div>
-                    <p className="font-medium">support@mediai.com</p>
+                    <p className="font-medium">teamilmtech@gmail.com</p>
                     <p className="text-sm text-muted-foreground">Response within 1 hour</p>
                   </div>
                 </div>
@@ -104,10 +105,32 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold">Headquarters</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                123 Healthcare Innovation Drive<br />
-                Medical District, CA 90210<br />
-                United States
+                Jabalpur, Madhya Pradesh<br />
+                India
               </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center text-muted-foreground">
+                  <MessageCircle className="w-4 h-4 mr-2 text-primary" />
+                  <span>WhatsApp: </span>
+                  <a href="https://chat.whatsapp.com/IJw256xuepP956JsufMY6g" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
+                    Join Community
+                  </a>
+                </div>
+                <div className="flex items-center text-muted-foreground">
+                  <span className="w-4 h-4 mr-2 text-blue-500 font-bold">in</span>
+                  <span>LinkedIn: </span>
+                  <a href="https://www.linkedin.com/company/team-ilm-tech/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
+                    Team ILM Tech
+                  </a>
+                </div>
+                <div className="flex items-center text-muted-foreground">
+                  <span className="w-4 h-4 mr-2 text-pink-500 font-bold">ig</span>
+                  <span>Instagram: </span>
+                  <a href="https://www.instagram.com/teamilmtech?igsh=dmo2dmtwMndoOXVw" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
+                    @teamilmtech
+                  </a>
+                </div>
+              </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <Clock className="w-4 h-4 mr-2" />
                 Mon-Fri: 9AM-6PM PST
@@ -271,9 +294,12 @@ const Contact = () => {
             <p className="text-muted-foreground mb-6">
               Our AI health assistant is available 24/7 to help answer your health questions instantly.
             </p>
-            <Button className="bg-gradient-secondary hover:glow-secondary px-8 py-4 text-lg">
+            <Button 
+              className="bg-gradient-secondary hover:glow-secondary px-8 py-4 text-lg"
+              onClick={() => window.open('https://wa.me/917631296157', '_blank')}
+            >
               <MessageCircle className="w-5 h-5 mr-2" />
-              Chat with AI Doctor Now
+              Chat with Doctor Now
             </Button>
           </Card>
         </div>

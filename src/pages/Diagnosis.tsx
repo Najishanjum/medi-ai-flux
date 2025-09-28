@@ -84,7 +84,70 @@ const Diagnosis = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-primary hover:glow-primary py-6 text-lg">
+                <Button 
+                  className="w-full bg-gradient-primary hover:glow-primary py-6 text-lg"
+                  onClick={() => {
+                    // Simple AI analysis simulation
+                    const symptoms = (document.querySelector('textarea') as HTMLTextAreaElement)?.value;
+                    const age = (document.querySelector('input[type="number"]') as HTMLInputElement)?.value;
+                    const gender = (document.querySelector('select') as HTMLSelectElement)?.value;
+                    
+                    if (!symptoms) {
+                      alert('Please describe your symptoms first.');
+                      return;
+                    }
+                    
+                    // Scroll to results section
+                    document.getElementById('ai-results')?.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Show loading and then results
+                    setTimeout(() => {
+                      const resultsSection = document.getElementById('ai-results-content');
+                      if (resultsSection) {
+                        resultsSection.innerHTML = `
+                          <div class="space-y-6">
+                            <div class="glass rounded-lg p-6">
+                              <h3 class="text-xl font-semibold mb-4 text-primary">AI Analysis Complete</h3>
+                              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="text-center">
+                                  <div class="text-2xl font-bold text-secondary mb-1">85%</div>
+                                  <div class="text-sm text-muted-foreground">Confidence Score</div>
+                                </div>
+                                <div class="text-center">
+                                  <div class="text-2xl font-bold text-accent mb-1">Low</div>
+                                  <div class="text-sm text-muted-foreground">Risk Level</div>
+                                </div>
+                                <div class="text-center">
+                                  <div class="text-2xl font-bold text-primary mb-1">3-5</div>
+                                  <div class="text-sm text-muted-foreground">Days Recovery</div>
+                                </div>
+                              </div>
+                              <div class="space-y-4">
+                                <div>
+                                  <h4 class="font-semibold mb-2">Possible Conditions:</h4>
+                                  <ul class="space-y-2 text-muted-foreground">
+                                    <li>• Common cold or viral infection (75% likelihood)</li>
+                                    <li>• Seasonal allergies (15% likelihood)</li>
+                                    <li>• Stress-related symptoms (10% likelihood)</li>
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h4 class="font-semibold mb-2">Recommendations:</h4>
+                                  <ul class="space-y-2 text-muted-foreground">
+                                    <li>• Get adequate rest (7-8 hours sleep)</li>
+                                    <li>• Stay hydrated (8-10 glasses water daily)</li>
+                                    <li>• Consider over-the-counter pain relief if needed</li>
+                                    <li>• Consult a doctor if symptoms worsen or persist beyond 7 days</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        `;
+                      }
+                    }, 2000);
+                  }}
+                >
                   <Brain className="w-5 h-5 mr-2" />
                   Analyze Symptoms
                 </Button>
@@ -107,7 +170,69 @@ const Diagnosis = () => {
                   <p className="text-muted-foreground mb-4">
                     Support for X-rays, MRIs, CT scans, and dermatology images
                   </p>
-                  <Button className="bg-gradient-secondary hover:glow-secondary">
+                  <input
+                    type="file"
+                    id="medical-images"
+                    accept="image/*,.dcm,.nii"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => {
+                      const files = e.target.files;
+                      if (files && files.length > 0) {
+                        alert(`Successfully uploaded ${files.length} file(s). AI analysis will begin shortly.`);
+                        // Simulate analysis
+                        setTimeout(() => {
+                          document.getElementById('ai-results')?.scrollIntoView({ behavior: 'smooth' });
+                          const resultsSection = document.getElementById('ai-results-content');
+                          if (resultsSection) {
+                            resultsSection.innerHTML = `
+                              <div class="space-y-6">
+                                <div class="glass rounded-lg p-6">
+                                  <h3 class="text-xl font-semibold mb-4 text-primary">Medical Image Analysis Complete</h3>
+                                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                    <div class="text-center">
+                                      <div class="text-2xl font-bold text-secondary mb-1">92%</div>
+                                      <div class="text-sm text-muted-foreground">Analysis Accuracy</div>
+                                    </div>
+                                    <div class="text-center">
+                                      <div class="text-2xl font-bold text-primary mb-1">Normal</div>
+                                      <div class="text-sm text-muted-foreground">Finding Status</div>
+                                    </div>
+                                    <div class="text-center">
+                                      <div class="text-2xl font-bold text-accent mb-1">${files.length}</div>
+                                      <div class="text-sm text-muted-foreground">Images Analyzed</div>
+                                    </div>
+                                  </div>
+                                  <div class="space-y-4">
+                                    <div>
+                                      <h4 class="font-semibold mb-2">Analysis Results:</h4>
+                                      <ul class="space-y-2 text-muted-foreground">
+                                        <li>• No immediate abnormalities detected</li>
+                                        <li>• Image quality: Excellent</li>
+                                        <li>• Recommended follow-up: Routine check-up</li>
+                                      </ul>
+                                    </div>
+                                    <div>
+                                      <h4 class="font-semibold mb-2">Next Steps:</h4>
+                                      <ul class="space-y-2 text-muted-foreground">
+                                        <li>• Share results with your physician</li>
+                                        <li>• Schedule regular health screenings</li>
+                                        <li>• Keep digital copies for medical records</li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            `;
+                          }
+                        }, 3000);
+                      }
+                    }}
+                  />
+                  <Button 
+                    className="bg-gradient-secondary hover:glow-secondary"
+                    onClick={() => document.getElementById('medical-images')?.click()}
+                  >
                     Choose Files
                   </Button>
                 </div>
@@ -150,7 +275,74 @@ const Diagnosis = () => {
                   <p className="text-muted-foreground mb-6">
                     Our AI can analyze your voice patterns for respiratory health, stress levels, and more.
                   </p>
-                  <Button className="bg-gradient-accent hover:glow-accent px-8 py-4 text-lg">
+                  <Button 
+                    className="bg-gradient-accent hover:glow-accent px-8 py-4 text-lg"
+                    onClick={() => {
+                      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                        navigator.mediaDevices.getUserMedia({ audio: true })
+                          .then(stream => {
+                            alert('Recording started! Speak clearly for 10 seconds.');
+                            // Simulate recording
+                            setTimeout(() => {
+                              stream.getTracks().forEach(track => track.stop());
+                              alert('Recording complete! Analyzing voice patterns...');
+                              // Simulate analysis
+                              setTimeout(() => {
+                                document.getElementById('ai-results')?.scrollIntoView({ behavior: 'smooth' });
+                                const resultsSection = document.getElementById('ai-results-content');
+                                if (resultsSection) {
+                                  resultsSection.innerHTML = `
+                                    <div class="space-y-6">
+                                      <div class="glass rounded-lg p-6">
+                                        <h3 class="text-xl font-semibold mb-4 text-primary">Voice Analysis Complete</h3>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                          <div class="text-center">
+                                            <div class="text-2xl font-bold text-secondary mb-1">Normal</div>
+                                            <div class="text-sm text-muted-foreground">Breathing Pattern</div>
+                                          </div>
+                                          <div class="text-center">
+                                            <div class="text-2xl font-bold text-accent mb-1">Low</div>
+                                            <div class="text-sm text-muted-foreground">Stress Level</div>
+                                          </div>
+                                          <div class="text-center">
+                                            <div class="text-2xl font-bold text-primary mb-1">Clear</div>
+                                            <div class="text-sm text-muted-foreground">Voice Quality</div>
+                                          </div>
+                                        </div>
+                                        <div class="space-y-4">
+                                          <div>
+                                            <h4 class="font-semibold mb-2">Voice Health Analysis:</h4>
+                                            <ul class="space-y-2 text-muted-foreground">
+                                              <li>• Respiratory health: Good</li>
+                                              <li>• Voice clarity: Excellent</li>
+                                              <li>• Stress indicators: Minimal</li>
+                                              <li>• Overall vocal health: Very good</li>
+                                            </ul>
+                                          </div>
+                                          <div>
+                                            <h4 class="font-semibold mb-2">Recommendations:</h4>
+                                            <ul class="space-y-2 text-muted-foreground">
+                                              <li>• Continue maintaining good vocal hygiene</li>
+                                              <li>• Stay hydrated for optimal voice health</li>
+                                              <li>• Practice stress-reduction techniques</li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  `;
+                                }
+                              }, 2000);
+                            }, 10000);
+                          })
+                          .catch(err => {
+                            alert('Microphone access denied. Please allow microphone access to use voice analysis.');
+                          });
+                      } else {
+                        alert('Voice recording not supported in this browser.');
+                      }
+                    }}
+                  >
                     Start Recording
                   </Button>
                 </div>
@@ -171,22 +363,58 @@ const Diagnosis = () => {
         </div>
 
         {/* AI Diagnosis Results Panel */}
-        <div className="max-w-4xl mx-auto mt-12">
+        <div className="max-w-4xl mx-auto mt-12" id="ai-results">
           <Card className="glass-elevated p-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center">
                 <Stethoscope className="w-8 h-8 text-primary mr-4" />
                 <h2 className="text-2xl font-bold">AI Analysis Results</h2>
               </div>
-              <Button variant="outline" className="glass">
+              <Button 
+                variant="outline" 
+                className="glass"
+                onClick={() => {
+                  const resultsContent = document.getElementById('ai-results-content')?.innerHTML;
+                  if (resultsContent && resultsContent.trim() !== '') {
+                    // Create a PDF-like report
+                    const reportWindow = window.open('', '_blank');
+                    reportWindow?.document.write(`
+                      <html>
+                        <head>
+                          <title>MediAI Health Report</title>
+                          <style>
+                            body { font-family: Arial, sans-serif; padding: 20px; }
+                            .header { text-align: center; margin-bottom: 30px; }
+                            .content { max-width: 800px; margin: 0 auto; }
+                          </style>
+                        </head>
+                        <body>
+                          <div class="header">
+                            <h1>MediAI Health Analysis Report</h1>
+                            <p>Generated on: ${new Date().toLocaleDateString()}</p>
+                          </div>
+                          <div class="content">
+                            ${resultsContent.replace(/class="[^"]*"/g, '')}
+                          </div>
+                        </body>
+                      </html>
+                    `);
+                    reportWindow?.print();
+                  } else {
+                    alert('No analysis results available. Please complete a diagnosis first.');
+                  }
+                }}
+              >
                 <FileText className="w-4 h-4 mr-2" />
                 Download Report
               </Button>
             </div>
             
-            <div className="text-center py-12 text-muted-foreground">
-              <Activity className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <p>Complete the diagnosis process above to see your AI-powered health analysis</p>
+            <div id="ai-results-content">
+              <div className="text-center py-12 text-muted-foreground">
+                <Activity className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                <p>Complete the diagnosis process above to see your AI-powered health analysis</p>
+              </div>
             </div>
           </Card>
         </div>

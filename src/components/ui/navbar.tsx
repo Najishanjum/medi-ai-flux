@@ -6,11 +6,8 @@ import logoImg from "@/assets/mediai-logo.png";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Features", path: "/features" },
   { name: "Diagnosis", path: "/diagnosis" },
   { name: "Dashboard", path: "/dashboard" },
-  { name: "Doctors", path: "/doctors" },
-  { name: "Health Alerts", path: "/health-alerts" },
   { name: "Community", path: "/community" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
