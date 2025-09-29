@@ -48,32 +48,6 @@ export const HeroSection = () => {
           connect with specialists worldwide.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-          <Button 
-            size="lg" 
-            className="bg-gradient-primary hover:glow-primary text-lg px-8 py-6 h-auto font-semibold group"
-            onClick={() => {
-              const diagnosisSection = document.getElementById('diagnosis-section');
-              if (diagnosisSection) {
-                diagnosisSection.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                window.location.href = '/diagnosis';
-              }
-            }}
-          >
-            <Sparkles className="w-5 h-5 mr-2 group-hover:animate-spin" />
-            Start Diagnosis
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="glass hover:glass-elevated text-lg px-8 py-6 h-auto font-semibold group border-primary/30 hover:border-primary"
-            onClick={() => window.location.href = '/contact'}
-          >
-            <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-            Talk to AI Doctor
-          </Button>
-        </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
