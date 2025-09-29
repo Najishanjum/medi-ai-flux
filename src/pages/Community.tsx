@@ -190,25 +190,6 @@ const Community = () => {
           </div>
         </Card>
 
-        {/* Join CTA */}
-        <div className="text-center">
-          <Card className="glass-elevated p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-              Ready to Join Our Health Community?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Connect with thousands of health-conscious individuals and start your wellness journey together.
-            </p>
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:glow-primary px-8 py-6 text-lg"
-              onClick={handleWhatsAppClick}
-            >
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Join WhatsApp Community Now
-            </Button>
-          </Card>
-        </div>
       </div>
     </div>
   );
